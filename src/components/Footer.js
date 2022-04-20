@@ -15,7 +15,7 @@ export default function Demo() {
           <Container maxWidth="md">
             <Toolbar>
               <Typography variant="body1" color="inherit">
-                Created by @bishalr0y | Powered by edamam
+                Created by @khriztianmoreno | Powered by edamam
               </Typography>
             </Toolbar>
           </Container>
