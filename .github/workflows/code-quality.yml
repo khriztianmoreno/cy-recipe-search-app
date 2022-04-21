@@ -22,5 +22,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - run: npm ci
-      - name: Run Eslint tasks
+      - name: Static code analysis
         run: npm run lint
+      - name: Dynamic code analysis
+        run: CI=true npm test
