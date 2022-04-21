@@ -1,39 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import Grid from '@mui/material/Grid';
 
-import Recipe from "./components/Recipe";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Recipe from './components/Recipe';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-const App = () => {
-
+function App() {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState('');
   const [search, setSearch] = useState(false);
 
   const APP_ID = process.env.REACT_APP_API_ID;
   const APP_KEY = process.env.REACT_APP_API_KEY;
-
-  useEffect(() => {
-    getData();
-    setQuery(""); //to reset the input text
-  }, [search]); //gets executed when the page renders
-
-
-
-  const handleChange = (event) => {
-    //console.log(event.target.value);
-    setQuery(event.target.value);
-    console.log(query);
-  }
-
-  const handleClick = (event) => {
-    event.preventDefault(); //to prevent the page (form) refresh
-    setSearch(true);
-  }
 
   const getData = async () => {
     const URL_BASE = 'https://api.edamam.com/search';
@@ -46,7 +27,22 @@ const App = () => {
     const items = data.hits;
 
     setRecipes(items);
-  }
+  };
+
+  useEffect(() => {
+    getData();
+    setQuery(''); // to reset the input text
+  }, [search]); // gets executed when the page renders
+
+  const handleChange = (event) => {
+    // console.log(event.target.value);
+    setQuery(event.target.value);
+  };
+
+  const handleClick = (event) => {
+    event.preventDefault(); // to prevent the page (form) refresh
+    setSearch(true);
+  };
 
   return (
     <div>
@@ -63,9 +59,9 @@ const App = () => {
             <SearchOutlinedIcon />
           </Button>
         </form>
-        {recipes.map((recipe, idx) => (
+        {recipes.map((recipe) => (
           <Recipe
-            key={idx}
+            key={recipe.id}
             label={recipe.recipe.label}
             image={recipe.recipe.image}
             mealType={recipe.recipe.mealType}
@@ -77,9 +73,7 @@ const App = () => {
       </Grid>
       <Footer />
     </div>
-)
-
+  );
 }
 
 export default App;
-

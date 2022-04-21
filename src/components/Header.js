@@ -1,10 +1,9 @@
-import React from "react";
 import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-const useStyles = styled((theme) => ({
+const useStyles = styled(() => ({
   root: {
     flexGrow: 1,
   },
@@ -13,8 +12,8 @@ const useStyles = styled((theme) => ({
   },
 }));
 const style = {
-  background: "#F50057",
-  margin: "0 0 40px 0"
+  background: '#F50057',
+  margin: '0 0 40px 0',
 };
 
 export default function ButtonAppBar() {
@@ -25,7 +24,7 @@ export default function ButtonAppBar() {
       <AppBar position="static" style={style}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Recipe Search App
+            Recipe Search App 🌯
           </Typography>
         </Toolbar>
       </AppBar>
