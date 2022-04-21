@@ -25,7 +25,7 @@ export default function ButtonAppBar() {
       <AppBar position="static" style={style}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Recipe Search App
+            Recipe Search App 🌯
           </Typography>
         </Toolbar>
       </AppBar>
